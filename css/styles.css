@@ -1,0 +1,165 @@
+/* begin basic styles */
+html {
+    font-size: 100%;
+    line-height: 1.5rem;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    /* above are the fonts it will use if someone's computer can't load whatever fancy font you choose */
+    height: 100%;
+}
+
+body {
+    margin: 0 auto;
+    padding: o;
+    min-height: 100%;
+    max-width: 100%;
+    padding-bottom: 10rem;
+    /* padding is how much space is around each item in a box and margin is the space between separate boxes */
+}
+
+/*  "*" BELOW MEANS ALL */
+*, *::before, *::after {
+ box-sizing: inherit;
+}
+
+img{
+    width: 100%;
+    height: auto;
+display: block;
+}
+/* end basic styles */
+
+/* begin hero styles */
+.hero-box {
+    /* "." above means class */
+    display: grid;
+    grid-template-columns: 1fr;
+    /* makes stuff go in one big column */
+    grid-template-rows: 1fr;
+    grid-gap: 0px;
+    align-content: center;
+    justify-content: center;
+    align-items: start;
+    height: 100%;
+    width: 100%;
+}
+
+.hero-image-box {
+    height: 100vh;
+    /* landing page will now take up size of the viewport because of above */
+    width: 100%;
+    display: grid;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    /* this above makes them square */
+}
+
+/* below lets make an overlay for text over image */
+.hero-image-box::after{
+    content: "";
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color:rgba(0, 97, 189, 0.596);
+    /* can use hex codes or RGB values above.  Hex is more specific, but RGBA is easier for transparency. hover mouse over numbers to see color */
+}
+
+
+.hero-image {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.hero-text-box {
+    grid-row: 1 / -1;
+    grid-column: 1/-1;
+    align-self: center;
+    padding: 1rem;
+    z-index: 10;
+    text-align: center;
+}
+
+.hero-heading {
+    font-size: 3rem;
+    line-height: 3rem;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.hero-text {
+    font-size: 2rem;
+    color: white;
+}
+/* begin portfolio styles */
+.portfolio-container {
+    margin: 1rem auto 0 auto;
+    text-align: center;
+}
+.portfolio-container h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+    color: black;
+}
+.portfolio-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 0.5rem;
+    grid-auto-rows: 300px;
+}
+
+.gallery-item {
+    height: 100%;
+    width: 100%;  
+    overflow: hidden;
+}
+.gallery-image{
+    height: 100%;
+    object-fit: cover;
+    transition: 0.25s ease-in-out;
+}
+
+.gallery-image:hover {
+    transform: scale(1.07);
+}
+
+/* media queries below */
+@media (min-width: 600px) {
+    .hero-heading {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+    .hero-text {
+        font-size: 2.rem;
+        line-height: 2.5rem;
+    }
+
+    .portfolio-container {
+        font-size: 3rem;
+        line-height: 3rem;
+        text-align: center;
+    }
+}
+
+@media (min-width: 920px) {
+.hero-heading {
+    font-size: 9rem;
+    line-height: 9rem;
+}
+.hero-text {
+    font-size: 3.4rem;
+    line-height: 4rem;
+}
+.portfolio-container {
+    max-width: 1400px;
+}
+.portfolio-container h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+}
+}
