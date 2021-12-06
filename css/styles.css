@@ -62,7 +62,7 @@ display: block;
     position: absolute;
     top: 0;
     bottom: 0;
-    background-color:rgba(0, 97, 189, 0.596);
+    background-color:rgba(0, 5, 70, 0.459);
     /* can use hex codes or RGB values above.  Hex is more specific, but RGBA is easier for transparency. hover mouse over numbers to see color */
 }
 
